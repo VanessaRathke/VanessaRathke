@@ -23,7 +23,7 @@ body
 .user-box img{
 border-radius: 20%;
 width:250px;
-border: 2px solid #6caed5;
+border: 2px solid #1d1e2b;
 }
 
 .user-box h1{
@@ -61,22 +61,85 @@ border: 2px solid #6caed5;
 	100%{transform: translateY(10px);}
 }
 
-/*--------------about----------------------*/
-.about{
-	padding-top: 100px;
-	padding-bottom: 50px;
-}
-
-#about h2{
-	padding-bottom: 20px;
-}
-
-.profile-img{
-	min-height: 70%;
-	max-width: 60%;
+/********** about me new **************/
+.section-1 {
+	padding-top: 7rem;
+	padding-bottom: 15rem;
+  }
+  
+  .section-1 .row .col-md-6 .bild img {
+	width: 70%;
+	border-radius: 0.2em;
 	border-top-right-radius: 50px;
 	border-bottom-left-radius: 50px;
+  }
+  
+  .section-1 .row .col-md-6:last-child {
+	position: relative; /*Das Element wird vom normalen Fluss aus verschoben und hat 
+	keinen Einfluss auf andere Elemente, da an der ursprünglichen Position Platz gelassen wird*/
+  }
+  
+  .section-1 .row .col-md-6 .panel {
+	position: absolute; /*Das Element wird aus dem normalen Fluss gelöst und unabhängig verschoben. Dabei können andere Elemente verdeckt werden. 
+	Diese verhalten sich so, als ob das Element nicht vorhanden wäre und lassen keinen Platz für das Element.*/
+	top: 7vmin; /*damit sich kasten bewegt beim vergrößern/verkleinern vom bildschirm*/
+	left: -15vmin; /*--Überlappung von Bild und TextContainer--*/
+	background: white;
+	border-radius: 3px;
+	text-align: left;
+	padding: 7vmin 8vmin 13vmin 12vmin; /*top, right, bottom, left*/
+	box-shadow: 0px 25px 42px rgba(0, 0, 0, 0.2); /*--Shadow Boxrand--*/
+	font-family: var(--Rubik); /*--Schriftart--*/
+	z-index: 1;
+  }
+  
+  .section-1 .row .col-md-6 .panel h1 {
+	font-weight: bold;
+	padding: 0.4em 0;
+	font-size: 2em;
+  }
+  
+  .section-1 .row .col-md-6 .panel p {
+	font-size: 0.9em;
+	color: rgba(0, 0, 0, 0.5);
+  }
+
+/*media queries müssen von oben nach unten geordnet sein, wegen max!!!!!*/
+@media only screen and (max-width: 1200px) {
+	.section-1{
+		padding-bottom: 20rem;
+		padding-top: 8rem;
+	}
 }
+
+@media only screen and (max-width: 992px) {
+	.section-1{
+		padding-top: 8rem;
+		padding-bottom: 27rem;
+	}
+	.section-1 .row .col-md-6 .panel{
+		position: absolute;
+		left: -10vmin;
+		padding: 5vmin 7vmin 7vmin 10vmin; /*top, right, bottom, left*/
+	}
+}
+
+@media only screen and (max-width: 768px) {
+	.section-1 .row .col-md-6 .panel {
+	 position: initial; /*initial setzt Wert (height) zurück auf 100% (nicht 80%)*/
+	 width: initial;
+	 height: initial;
+   }
+   .section-1{
+	   padding-bottom: 5rem;
+	   padding-top: 3rem;
+   }
+   .panel{
+	   margin-top: 1rem;
+   }
+}
+
+/*--------------nav----------*/
 
 .nav-bar{
 	top: 0;
@@ -105,11 +168,10 @@ border: 2px solid #6caed5;
 	text-align: right;
 }
 
-
 /*----------skills ----------------*/
 #skills{
 	padding-top: 10px;;
-	padding-bottom: 20px;
+	padding-bottom: 60px;
 }
 #skills h2{
 	padding-bottom: 20px;
@@ -140,7 +202,7 @@ border: 2px solid #6caed5;
 /*------------resume------------------*/
 .resume{
 	padding-top: 50px; /*klebt sonst oben am foto*/
-	padding-bottom: 30px;
+	padding-bottom: 60px;
 	background: #f9f9f9; /*hintergrund "kasten" mit farbe abgegrenzt*/
 }
 
@@ -198,8 +260,8 @@ color: #ccc;
 
 /*------------------social------------------------*/
 #social{
-	padding-top: 50px;
-	padding-bottom: 50px;
+	padding-top: 60px;
+	padding-bottom: 60px;
 }
 
 #social h1{
@@ -210,7 +272,7 @@ color: #ccc;
 	padding-bottom: 10px;;
 }
 
-#social .box{
+.social-box{
 	background: #f9f9f9;
 	padding: 10px;
 	margin-top: 20px;
@@ -218,10 +280,24 @@ color: #ccc;
 	border-bottom-left-radius: 50px;
 }
 
+.social-box:hover{
+	background: #000;
+	color: #fff;
+	border-top-right-radius: 0;
+	border-bottom-left-radius: 0;
+	border-top-left-radius: 50px;
+	border-bottom-right-radius: 50px;
+	transition: 1s;
+}
+
+.social-box:hover p{
+	color: #fff;
+}
+
 /*-------------services/interest------------------*/
 .services{
-	padding-top: 50px;
-	padding-bottom: 50px;
+	padding-top: 60px;
+	padding-bottom: 70px;
 	background: #f9f9f9;
 }
 
